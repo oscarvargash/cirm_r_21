@@ -5,7 +5,7 @@
 > If you have any questions regarding the material, please submit an issue and we will try to help you out.
 > 
 
-The aim of the workshop is to provide the attendants with the jump-start skills necessary to begin using R programing language. 
+The aim of the workshop is to provide the attendants with the jump-start skills necessary to begin using the R programing language. 
 
 This course is going to be hands-on starting from the basics. We expect every assistant to log into their virtual HSU machine through their laptops, and we will go over exercises during class, our workshop is designed so students can copy and paste the code directly into their machines.
 
@@ -24,8 +24,6 @@ At the end of the course participants will be comfortable using the r environmen
 [D-3](https://github.com/oscarvargash/cirm_r_21/main/day_3) Introduction to version control, GitHub, Bitbucket
 
 # Instructors:
-
-Merly Escalona (<mmescalo@ucsc.edu>): Postdoctoral Scholar in the [Paleogenomics lab](https://pgl.soe.ucsc.edu), experience with bioinformatics, simulation of genomic and high throughput sequencing data, and genome assembly.
 
 [Catalina Cuellar](https://cuellar-gempeler-lab.weebly.com/) (ccg@humboldt.edu): Assistant Proferssor, experience with bioinformatics and microbial ecology
 
