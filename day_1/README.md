@@ -251,7 +251,7 @@ We are going to focus on 4 simple ways to get files or data into R. But, before 
  
 ### Task 7. Open Excel and create a file with 3 columns labeled “colony color”, “abundance”, and “cell size”. For color enter: brown, brown, white, white, white. For abundance, enter: 10, 9, 5, 8, 2. For size, enter: 23, (leave this cell empty), 5, 16, 3. Save this table in your folder as ‘Table1R’.
  
-![Table1]((files/Table1_CIRMBioinf.jpeg) 
+![Table1](files/Table1_CIRMBioinf.jpeg) 
 Now, we want to get this data into R. But, I will not work (and I will prove this to you later).
  
 We intentionally started with a file that R cannot read. It has a couple of common problems that need to be fixed before any file can be brought into R.
