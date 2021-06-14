@@ -66,7 +66,7 @@ Both PC and Macintosh versions of R can be downloaded from the [R home page] (ht
 [Other resources from YaRrr! The pirate’s guide to R](https://bookdown.org/ndphillips/YaRrr/r-resources.html)
 
 ## What does it look like and what does it all mean
-[Fig1](images/Fig1_CIRMBioinf.jpeg) 
+[Fig1](files/Fig1_CIRMBioinf.jpeg) 
  
 Figure 1 is a typical workspace in Rstudio, with four panels. You may have to open a new script (source) when you open the program for the first time: click on the new script icon to the top-left corner (see Fig 1, indicated with a yellow arrow)The most important panels right now are on the left, the source and the console. The source code in the top-left corner is where you will type your code and save your script. The console is where the code runs. You can write code directly to the console to find whether it works or not, or the answer to a calculation. You can also send your code from the source to the console to run. Importantly, you will be saving your source code, if you are typing in the console, you will be unable to save your progress or reuse your code. Therefore, I recommend you ALWAYS type and work on the source panel and send your code to run and see the output on the console. The panels on the right will display your data tables, plots, help and other features, but we will get to those later.
  
@@ -251,7 +251,7 @@ We are going to focus on 4 simple ways to get files or data into R. But, before 
  
 ### Task 7. Open Excel and create a file with 3 columns labeled “colony color”, “abundance”, and “cell size”. For color enter: brown, brown, white, white, white. For abundance, enter: 10, 9, 5, 8, 2. For size, enter: 23, (leave this cell empty), 5, 16, 3. Save this table in your folder as ‘Table1R’.
  
-[Table1]((images/Table1_CIRMBioinf.jpeg) 
+[Table1]((files/Table1_CIRMBioinf.jpeg) 
 Now, we want to get this data into R. But, I will not work (and I will prove this to you later).
  
 We intentionally started with a file that R cannot read. It has a couple of common problems that need to be fixed before any file can be brought into R.
@@ -261,7 +261,7 @@ Remember the rules for naming variables given in Tutorial 1: variable names are 
  
 ### Task 8. To fix the table, change the variable names from “colony color” to “colony.color” and from “cell size” to “cell.size”. Save the new table as ‘Table1R.fixed’. It should look something like:
 
-[Table1.Fixed]((images/Table1Fixed_CIRMBioinf.jpeg) 
+[Table1.Fixed]((files/Table1Fixed_CIRMBioinf.jpeg) 
  
 ### 3. Reading the Data into R:
 There are a few ways to enter this data into R. Here we will explore importing data stored in excel files. In R, each data set will be referred to as a “data frame” and be given a name – in our example, we will create the data frame called * * bacteria * *.
