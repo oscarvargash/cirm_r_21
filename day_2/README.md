@@ -4,7 +4,15 @@ The power of coding relies heavily on being able to analyze large datasets with 
 
 ## Filtering data and getting some basic statistics 
 
-First we need to install dplyr
+First create a folder in your documents or desktop named `day_2`.
+
+Then download the following dataset and added to the folder.
+
+[Abronia dataset](https://www.dropbox.com/s/z583pnzvyail7pr/abronia_2.csv?dl=0) 
+
+
+
+R functions like a dock in which you can install or park pakages for analyses. A very useful package to for working with dataframes is dplyr.
 
 ```
 install.packages("dplyr")
