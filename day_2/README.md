@@ -30,7 +30,7 @@ library(dplyr)
 Now we need to tell R about your working folder. Look for the address of one of your files inside your `day_2` folder,
 
 ```
-setwd("/Users/ov20/Desktop/Abronia")
+setwd("C:/Users/ov20/Documents/cirm_2021/day_2")
 ```
 
 We can always check our working directory by typing:
@@ -92,12 +92,12 @@ In our case, we want to keep numeral entries; for this we are using the function
 Let’s check that our dataset does not have NAs in the latitude column:
 
 ```
-tail(geodata$decimalLatitude, 50)
+tail(geodata$decimalLatitude, 100)
 ```
 
 Now let’s try to calculate the mean latitude for all species combined.
 ```
-mean(data$decimalLatitude)
+mean(geodata$decimalLatitude)
 ```
 
 ***NOTE*** There are always numerous ways of solving a problem while coding; another way of calculating the mean while ignoring the NAs is `mean(data$decimalLatitude, na.rm = T)`. Working with a clean dataset usually helps to run code more efficiently, so we will keep working with `geodata`.
@@ -109,21 +109,30 @@ median(geodata$decimalLatitude)
 min(geodata$decimalLatitude)
 ```
 
-## Exercise. Using the filter `filter(species == "Species of interest")` (notice that this is just filter of the line necessary for the line). Find the maximum longitude for “Abronia latifolia”.
+## Exercise 1.
+Using the filter `filter(species == "Species of interest")` (notice that this is just filter of the line necessary for the line). Find the maximum longitude for “Abronia latifolia”.
 
+<details>
+  <summary>Click to see an answer!</summary>
+  
+```
+abla = geodata %>% filter(species == "Abronia latifolia")
+max(abla$decimalLongitude)
+```
+  
 
+</details>
 
 ## Basic plotting and model testing
-
 We can easily compare the latitudinal range among species using a boxplot.
 ```
 boxplot(geodata$decimalLatitude ~ geodata$species, las = 2)
 ```
 
-We will the dataset of Abronia latifolia (our local sand verbena) that you subsetted in the past exercise for plotting and fitting a linear model. Slide the bar to the right to see the answer for subsetting the data.
+We will use the dataset of Abronia latifolia (our local sand verbena) that you subsetted in the past exercise for plotting and fitting a linear model. Slide the bar to the right to see the answer for subsetting the data.
 
 <details>
-  <summary>Click to see an answer!</summary>
+  <summary>Click to see the code!</summary>
   
 ```
 abla = geodata %>% filter(species == "Abronia latifolia")
@@ -172,6 +181,29 @@ plot(abla$decimalLongitude, abla$decimalLatitude)
 abline(model1)
 ```
 
+## Exercise 2: advance plotting
+
+Ggplot can create advance figures. Install ggplot and plot the latitude of all species in a single figure color-coded by species. Addapt the following code to our data:
+
+https://ggplot2.tidyverse.org/
+
+<details>
+  <summary>Click to see an answer!</summary>
+  
+```
+install.packages("tidyverse")
+install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(geodata, aes(decimalLongitude, decimalLatitude, colour = species)) + geom_point()
+
+```
+  
+
+</details>
+
+
+***this is the end of the morning session***
 
 ## Using loops 
 
