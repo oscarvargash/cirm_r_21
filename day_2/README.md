@@ -213,6 +213,7 @@ First we need to create a dataframe that contains the list of items we want to i
 
 ```
 Ab_sp = geodata %>% group_by(species) %>% tally()
+Ab_sp
 ```
 This data frame contains the number of record per species. Notice that if you want to extract a vector that contains only species names you can do:
 
@@ -220,34 +221,37 @@ This data frame contains the number of record per species. Notice that if you wa
 Ab_sp$species
 ```
 
-This vector will be of great use for the loop, we can create a new vector called species in the following fashion:
+This item will be of great use for the loop, we can create a new item called species in the following fashion:
 
 ```
 spp = Ab_sp$species
+spp
 ```
 
 Let’s remove the first element of `spp`, which are non-specific records.
 
 ```
-spp = spp[2:23]
+spp2 = spp[2:23]
+spp2
 ``` 
 
 Here is an example of a simple loop that just prints every element in the list:
 
 ```
-for (item in (spp)) {
+for (item in (spp2)) {
 	print(item)
 }
 ```
 Notice the syntax in the loop. And WOW!! How cool! You have run your first loop!!!!!!
 
-***Exercise*** Add lines to the loop so it prints the average latitude for every species. Hint you need to add a line inside the loop to subset the data and a line to calculate the mean.
+## Exercise 3: an advance loop
+Add lines to the previous loop so it prints the average latitude for every species. Hint you need to add a line inside the loop to subset the data and a line to calculate the mean.
 
 <details>
   <summary>Click to see an answer!</summary>
   
 ```
-for (item in (spp)) {
+for (item in (spp2)) {
 	print(item)
 	subset = geodata %>% filter(species == item)
 	mn = mean(subset$decimalLatitude)
@@ -258,18 +262,26 @@ for (item in (spp)) {
 
 </details>
 
-***Optional exercise*** While the output to the screen is very useful, it will be better if we can store the output as a dataframe. Hint, you first need to create a dataframe that you will populate, then you will need that 
+## Optional, exercise 4: an advance loop
+
+While the output to the screen is very useful, it will be better if we can store the output as a dataframe. Hint, you first need to create a dataframe that you will populate, then you will need that populate the dataframe inside the loop. Finally it will be nice to save the output as a table.
 
 <details>
   <summary>Click to see an answer!</summary>
   
 ```
+Ab_means = data.frame("species" = spp, "mean" = 0)
+
 for (item in (spp)) {
 	print(item)
 	subset = geodata %>% filter(species == item)
 	mn = mean(subset$decimalLatitude)
 	print(mn)
+	Ab_means$mean[Ab_means$species==item] = mn
 }
+
+write.csv(Ab_means, file = "Abronia_mean_latitudes.csv")
+
 ```
   
 
