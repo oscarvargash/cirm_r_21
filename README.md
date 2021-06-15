@@ -17,11 +17,11 @@ At the end of the course participants will be comfortable using the r environmen
 
 ## Program (subject to change):
 
-[D-1](https://github.com/oscarvargash/cirm_r_21/tree/main/day_1) introduction to r, navigating your computer using bash
+[D-1](https://github.com/oscarvargash/cirm_r_21/tree/main/day_1) introduction to r: r basics, importing files and folder structures
 
-[D-2](https://github.com/oscarvargash/cirm_r_21/tree/main/day_2) Text editors, basic bash scripts, bash loops
+[D-2](https://github.com/oscarvargash/cirm_r_21/tree/main/day_2) Data manipulation, basic statistics, graphs, r loops
 
-[D-3](https://github.com/oscarvargash/cirm_r_21/tree/main/day_3) Introduction to version control, GitHub, Bitbucket
+[D-3](https://github.com/oscarvargash/cirm_r_21/tree/main/day_3) Single cell analysis with seurat
 
 # Instructors:
 
