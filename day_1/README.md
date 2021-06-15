@@ -42,8 +42,8 @@ Anything worth doing, from losing weight to getting a degree, takes time. Learni
 ### on HSU virtual labs:
 Although you can download in your personal computer (and you are encouraged to do so – find instructions on Canvas), we will work on a standardized set up on the school virtual lab (vlabs). To access vlabs:
 * [Click Here] (https://vlab.humbold.edu)
+* Access ‘vLab- Fall 2020’ or 'Desktops'
 * Log in with your HSU information
-* Access ‘vLab- Fall 2020’
 * Go to the search icon to the bottom left and search : ‘Rstudio’
 * Open R studio
  
