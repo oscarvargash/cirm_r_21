@@ -4,15 +4,19 @@ The power of coding relies heavily on being able to analyze large datasets with 
 
 ## Filtering data and getting some basic statistics 
 
-First create a folder in your documents or desktop named `day_2`.
+- First create a folder in your documents or desktop named `day_2`.
 
-Then download the following dataset and added to the folder.
+- Then download the following dataset and add it to the folder. The best way to do this is to access this github page from inside vlab.
 
 [Abronia dataset](https://www.dropbox.com/s/z583pnzvyail7pr/abronia_2.csv?dl=0) 
 
+- Now that you have `abronia_2.csv` inside the folder `day_2` go to Rstudio and open a new script.
 
+- Save the new script as `abronia.r` inside the folder `day_2`
 
-R functions like a dock in which you can install or park pakages for analyses. A very useful package to for working with dataframes is dplyr.
+### Installing our first R package
+
+R functions like a dock in which you can install packages for analyses. A very useful package for working with dataframes is dplyr.
 
 ```
 install.packages("dplyr")
@@ -23,9 +27,7 @@ Now that the library is installed we can load it.
 library(dplyr)
 ```
 
-Download the dataset “abronia_2.csv” into a folder called “abronia”. This will be the folder you will be your working folder for the exercise today.
-
-Now that you have your working folder, we need to tell R about it.
+Now we need to tell R about your working folder. Look for the address of one of your files inside your `day_2` folder,
 
 ```
 setwd("/Users/ov20/Desktop/Abronia")
@@ -34,15 +36,15 @@ setwd("/Users/ov20/Desktop/Abronia")
 We can always check our working directory by typing:
 ```
 getwd()
+dir()
 ```
 
 Now we can import our dataset
 ```
-data <- read.csv("Abronia_2.csv")
+data = read.csv("abronia_2.csv")
 ```
 
-
-If a table is pretty large there is no point in printing all of it on the screen. To check that our dataset has been successfully imported, we can print to screen only the “head” of the dataset.
+This dataframe is pretty large so there is no point in printing it all to the screen. To check that our dataset has been successfully imported, we can print to screen only the “head” of the dataset.
 ```
 head(data)
 ```
@@ -54,6 +56,11 @@ tail(data, 10)
 ```
 We can see here that we have more than 17 thousand records in our dataset.
 
+We can also see the structure of the dataframe by doing:
+```
+str(data)
+```
+
 Our dataset contains museum and inaturalist records for all the species of sand verbenas (a charismatic plant that can be found at the dunes in Arcata). We are interested in studying the distribution of sand verbenas, and therefore we would like to know several statistics about the latitudinal range for the genus and species.
 
 Since we are interested in describing the latitudinal range for these plants, a first calculation is to find the mean of the latitude.
@@ -64,20 +71,22 @@ mean(data$decimalLatitude)
 
 Opps!!!!
 
-We can see that there is something wrong with the command or the dataset, any ideas what can be wrong?
+We can see that there is something wrong with the command or the dataset, any ideas what can be wrong? Let's check the last 100 values of the Latitude:
 
-When we go back to see the print we did with `tail`, we can see that there are multiple rows without values “NAs”.  with dplyr we can easily filter out those.
 ```
-geodata <- data %>% filter(!is.na(decimalLatitude))
+tail(data$decimalLatitude, 100)
 ```
-In this line of code we are assigning the output of the dplyr filter to a new dataframe that we are naming “geodata”
 
+We can see that there are multiple rows without values “NAs”.  with dplyr we can easily filter out those. Let's create a new dataframe with only data that has latitude `geodata`.
+
+```
+geodata = data %>% filter(!is.na(decimalLatitude))
+```
 Dplyr uses the following syntax:
 
-NEWDATASET <- DATASET %>% FILTER
+NEWDATASET = DATASET %>% FILTER
 
 In our case, we want to keep numeral entries; for this we are using the function `filter` and the function `is.na`. If we were to use `data %>% filter(is.na(decimalLatitude))`, we will only keep the rows with NAs, which is the opposite of what we want. The character `!` means “is not”, asking R keep in the new dataframe everything that is not NA.
-
 
 
 Let’s check that our dataset does not have NAs in the latitude column:
@@ -117,7 +126,7 @@ We will the dataset of Abronia latifolia (our local sand verbena) that you subse
   <summary>Click to see an answer!</summary>
   
 ```
-abla <- geodata %>% filter(species == "Abronia latifolia")
+abla = geodata %>% filter(species == "Abronia latifolia")
 ```
   
 
@@ -153,7 +162,7 @@ What do you see?
 
 Just for fun, we can test whether or not we can predict the latitude by the longitude. ***Note*** This test might not be appropriate because we are not sure if our data is normal. 
 ```
-model1 <- lm(abla$decimalLatitude ~ abla$decimalLongitude)
+model1 = lm(abla$decimalLatitude ~ abla$decimalLongitude)
 summary(model1)
 ```
 
@@ -171,7 +180,7 @@ So far it has taken us a bit of time to analyze just the data for Abronia latifo
 First we need to create a dataframe that contains the list of items we want to iterate over. In this case we need a list of Abronia species. We can use dplyr for this task:
 
 ```
-Ab_sp <- geodata %>% group_by(species) %>% tally()
+Ab_sp = geodata %>% group_by(species) %>% tally()
 ```
 This data frame contains the number of record per species. Notice that if you want to extract a vector that contains only species names you can do:
 
@@ -182,13 +191,13 @@ Ab_sp$species
 This vector will be of great use for the loop, we can create a new vector called species in the following fashion:
 
 ```
-spp <- Ab_sp$species
+spp = Ab_sp$species
 ```
 
 Let’s remove the first element of `spp`, which are non-specific records.
 
 ```
-spp <- spp[2:23]
+spp = spp[2:23]
 ``` 
 
 Here is an example of a simple loop that just prints every element in the list:
@@ -208,8 +217,8 @@ Notice the syntax in the loop. And WOW!! How cool! You have run your first loop!
 ```
 for (item in (spp)) {
 	print(item)
-	subset <- geodata %>% filter(species == item)
-	mn <- mean(subset$decimalLatitude)
+	subset = geodata %>% filter(species == item)
+	mn = mean(subset$decimalLatitude)
 	print(mn)
 }
 ```
@@ -225,8 +234,8 @@ for (item in (spp)) {
 ```
 for (item in (spp)) {
 	print(item)
-	subset <- geodata %>% filter(species == item)
-	mn <- mean(subset$decimalLatitude)
+	subset = geodata %>% filter(species == item)
+	mn = mean(subset$decimalLatitude)
 	print(mn)
 }
 ```
