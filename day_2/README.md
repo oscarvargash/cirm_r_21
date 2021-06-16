@@ -270,9 +270,9 @@ While the output to the screen is very useful, it will be better if we can store
   <summary>Click to see an answer!</summary>
   
 ```
-Ab_means = data.frame("species" = spp, "mean" = 0)
+Ab_means = data.frame("species" = spp2, "mean" = 0)
 
-for (item in (spp)) {
+for (item in (spp2)) {
 	print(item)
 	subset = geodata %>% filter(species == item)
 	mn = mean(subset$decimalLatitude)
@@ -286,9 +286,6 @@ write.csv(Ab_means, file = "Abronia_mean_latitudes.csv")
   
 
 </details>
-
-
-
 
 
 
