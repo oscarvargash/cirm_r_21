@@ -8,7 +8,7 @@ You first need to download the data to `day_3` from the tuorial found here https
 
 Install the following packages and follow the tutorial
 
-***NOTE*** when the Rstudio asks "Do you eant to install from sources the pakge which needs compilation?" answer "NO"
+***NOTE*** when the Rstudio asks "Do you want to install from sources the package which needs compilation?" answer "NO"
 
 ```
 install.packages("dplyr")
